@@ -3,25 +3,28 @@ export class View {
         // HTML-Elemente holen
         this.ausgabe = document.getElementById('gedicht');
         this.eingabe = document.getElementById('eingabe');
-        const buttonVorne = document.getElementById('vorne');
-        const buttonHinten = document.getElementById('hinten');
-        const buttonLoeschen = document.getElementById('loeschen');
-        const buttonDuplizieren = document.getElementById('duplizieren');
+        this.buttonVorne = document.getElementById('vorne');
+        this.buttonHinten = document.getElementById('hinten');
+        this.buttonLoeschen = document.getElementById('loeschen');
+        this.buttonDuplizieren = document.getElementById('duplizieren');
 
-        // Events
-        buttonVorne.addEventListener('click', function () {
+        this.delegateEvents(presenter);
+    }
+
+    delegateEvents(presenter) {
+        this.buttonVorne.addEventListener('click', function () {
             presenter.buttonVorneClicked();
         });
 
-        buttonHinten.addEventListener('click', function () {
+        this.buttonHinten.addEventListener('click', function () {
             presenter.buttonHintenClicked();
         });
 
-        buttonLoeschen.addEventListener('click', function () {
+        this.buttonLoeschen.addEventListener('click', function () {
             presenter.buttonLoeschenClicked();
         });
 
-        buttonDuplizieren.addEventListener('click', function () {
+        this.buttonDuplizieren.addEventListener('click', function () {
             presenter.buttonDuplizierenClicked();
         });
     }

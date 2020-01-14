@@ -8,18 +8,29 @@ export class Presenter {
     }
 
     buttonVorneClicked() {
-        console.log('vorne angeklickt');
+        const neueZeile = this.view.getInputText();
+        this.model.vorneEinfuegen(neueZeile);
+        this.update();
+    }
+
+    update() {
+        const neuesGedicht = this.model.getGedicht();
+        this.view.setOutput(neuesGedicht);
     }
 
     buttonHintenClicked() {
-        console.log('hinten angeklickt');
+        const neueZeile = this.view.getInputText();
+        this.model.hintenAnhaengen(neueZeile);
+        this.update();
     }
 
     buttonLoeschenClicked() {
-        console.log('loeschen angeklickt');
+        this.model.loeschen();
+        this.update();
     }
 
     buttonDuplizierenClicked() {
-        console.log('duplizieren angeklickt');
+        this.model.duplizieren();
+        this.update();
     }
 }
