@@ -1,8 +1,8 @@
 export class View {
     constructor(presenter) {
         // HTML-Elemente holen
-        const ausgabe = document.getElementById('gedicht');
-        const eingabe = document.getElementById('eingabe');
+        this.ausgabe = document.getElementById('gedicht');
+        this.eingabe = document.getElementById('eingabe');
         const buttonVorne = document.getElementById('vorne');
         const buttonHinten = document.getElementById('hinten');
         const buttonLoeschen = document.getElementById('loeschen');
@@ -24,5 +24,13 @@ export class View {
         buttonDuplizieren.addEventListener('click', function () {
             presenter.buttonDuplizierenClicked();
         });
+    }
+
+    getInputText() {
+        return this.eingabe.value;
+    }
+
+    setOutput(htmlText) {
+        this.ausgabe.innerHTML = htmlText;
     }
 }
